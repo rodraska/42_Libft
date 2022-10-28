@@ -14,12 +14,14 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char	*d;
-	char	*s;
-	size_t	i;
+	unsigned char	*d;
+	unsigned char	*s;
+	size_t			i;
 
-	d = (char *)dest;
-	s = (char *)src;
+	if (!dest && !src)
+		return (NULL);
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
 	i = 0;
 	while (i < n)
 	{
@@ -28,3 +30,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
+/*
+int	main(void)
+{
+	ft_memcpy(((void *)0), "segfaulter tu dois", 17);
+	memcpy(((void *)0), "segfaulter tu dois", 17);
+	return (0);
+}*/
