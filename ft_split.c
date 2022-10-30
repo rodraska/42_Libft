@@ -75,9 +75,9 @@ char	**ft_split(char const *s, char c)
 
 	count = string_counter(s, c);
 	arr = (char **)malloc(sizeof(char *) * (count + 1));
-	arr[count] = NULL;
 	if (!arr)
 		return (NULL);
+	arr[count] = NULL;
 	i = 0;
 	w = 0;
 	while (w < count && s[i])

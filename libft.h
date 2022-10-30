@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include <ctype.h>
 
 typedef struct s_list
 {
@@ -29,8 +30,8 @@ int		ft_isdigit(int i);
 int		ft_isalnum(int i);
 int		ft_isascii(int i);
 int		ft_isprint(int i);
-char	ft_toupper(char c);
-char	ft_tolower(char c);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
 void	*ft_memset(void *str, int c, size_t n);
 size_t	ft_strlen(const char *str);
 void	ft_bzero(void *s, size_t n);

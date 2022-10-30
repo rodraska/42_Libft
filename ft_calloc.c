@@ -19,6 +19,6 @@ void	*ft_calloc(size_t nitems, size_t size)
 	m = (void *)malloc(nitems * size);
 	if (!m)
 		return (NULL);
-	ft_bzero(m, nitems);
+	ft_bzero(m, nitems * size);
 	return (m);
 }

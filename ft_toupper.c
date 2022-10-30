@@ -12,9 +12,16 @@
 
 #include "libft.h"
 
-char	ft_toupper(char c)
+int	ft_toupper(int c)
 {
 	if (c >= 97 && c <= 122)
 		c -= 32;
 	return (c);
 }
+/*
+int	main(void)
+{
+	printf("%d\n", ft_toupper(128));
+	printf("%d\n", toupper(128));
+	return (0);
+}*/
