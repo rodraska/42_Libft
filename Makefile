@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rreis-de <rreis-de@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/10/31 11:00:17 by rreis-de          #+#    #+#              #
+#    Updated: 2022/10/31 11:00:18 by rreis-de         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 SRCS	=  ft_atoi.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
@@ -26,7 +38,6 @@ SRCS	=  ft_atoi.c \
 		ft_strncmp.c \
 		ft_strdup.c \
 		ft_strnstr.c \
-		ft_strrchr.c \
 		ft_substr.c \
 		ft_tolower.c \
 		ft_strmapi.c \
