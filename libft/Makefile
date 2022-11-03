@@ -5,18 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rreis-de <rreis-de@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/02 14:29:07 by rreis-de          #+#    #+#              #
-#    Updated: 2022/11/03 13:45:23 by rreis-de         ###   ########.fr        #
+#    Created: 2022/10/31 11:00:17 by rreis-de          #+#    #+#              #
+#    Updated: 2022/10/31 11:00:18 by rreis-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= libftprintf.a
-
-SRCS = ft_printf.c \
-		ft_letters.c \
-		ft_numbers.c
-
-SRCSF	=  ft_atoi.c \
+SRCS	=  ft_atoi.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
 		ft_isalpha.c \
@@ -51,42 +45,40 @@ SRCSF	=  ft_atoi.c \
 		ft_toupper.c \
 		ft_strtrim.c
 
-SRCSD	= $(addprefix libft/, $(SRCSF))
-
-LIBFT = libft/libft.a
+BNS	= ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstmap.c 
 
 OBJS	= ${SRCS:.c=.o}
-
-OBJSD	= ${SRCSF:.c=.o}
-
-INCS	= ft_printf.h
-
+OBNS	= ${BNS:.c=.o}
+INCS	= libft.h
+NAME	= libft.a
 LIBC	= ar rcs
-
-CC		= clang
-
+CC		= gcc
 RM		= rm -f
-
 CFLAGS	= -Wall -Wextra -Werror
 
 
-${NAME}: libft.a ${OBJS}
-	cp ${LIBFT} .
-	mv libft.a ${NAME}
+${NAME}: ${OBJS}
+	${CC} ${CFLAGS} -c ${SRCS} ${INCS}
 	${LIBC} ${NAME} ${OBJS}
 
-all: ${NAME}
+all: ${NAME} bonus
+
+bonus: ${NAME}
+	${CC} ${CFLAGS} -c ${BNS}
+	${LIBC} ${NAME} ${OBNS}
 
 clean:
-	${RM} ${OBJS} ${OBJSD}
+	${RM} ${OBJS} ${OBNS}
 
-libft.a:
-	cd libft && ${MAKE} all
-
-lib_fclean:
-	cd libft && ${MAKE} fclean
-
-fclean: clean lib_fclean
+fclean: clean
 	${RM} ${NAME}
 
 re: fclean all
